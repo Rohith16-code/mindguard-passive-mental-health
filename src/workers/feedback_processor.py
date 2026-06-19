@@ -4,7 +4,7 @@ from typing import Dict, Any, Optional
 import re
 
 from src.config import settings
-from src.db import db
+from src.db.db import db
 from src.redis import redis_client
 from src.schemas.feedback import FeedbackIn
 
