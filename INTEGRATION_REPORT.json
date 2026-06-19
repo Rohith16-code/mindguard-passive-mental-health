@@ -1,7 +1,7 @@
 {
-  "timestamp": "2026-06-19T20:12:28.029680",
-  "total_issues": 38,
-  "critical": 33,
+  "timestamp": "2026-06-19T20:14:51.572174",
+  "total_issues": 37,
+  "critical": 32,
   "issues": [
     {
       "file": "src/main.py",
@@ -26,12 +26,6 @@
       "type": "import",
       "description": "Import failed: No module named 'src.core'",
       "fix_hint": "Fix import in src/workers/scheduler.py"
-    },
-    {
-      "file": "src/workers/health_monitor.py",
-      "type": "import",
-      "description": "Import failed: No module named 'psutil'",
-      "fix_hint": "Fix import in src/workers/health_monitor.py"
     },
     {
       "file": "src/workers/feedback_processor.py",
