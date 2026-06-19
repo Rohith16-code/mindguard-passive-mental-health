@@ -1,12 +1,12 @@
 {
-  "timestamp": "2026-06-19T20:17:56.193115",
+  "timestamp": "2026-06-19T20:21:02.134157",
   "total_issues": 37,
   "critical": 32,
   "issues": [
     {
       "file": "src/main.py",
       "type": "import",
-      "description": "Import failed: cannot import name 'API_PORT' from 'src.config' (/home/namit/rohith/autonomous-dev/workspace/2026-06-19-passive-mental-health-crisis-detection-from-daily/src/config/__init__.py)",
+      "description": "Import failed: cannot import name 'DEBUG' from 'src.config' (/home/namit/rohith/autonomous-dev/workspace/2026-06-19-passive-mental-health-crisis-detection-from-daily/src/config/__init__.py)",
       "fix_hint": "Fix import in src/main.py"
     },
     {
@@ -18,7 +18,7 @@
     {
       "file": "src/workers/pipeline_orchestrator.py",
       "type": "import",
-      "description": "Import failed: No module named 'src.db.async_db'",
+      "description": "Import failed: No module named 'src.workers.async_db'",
       "fix_hint": "Fix import in src/workers/pipeline_orchestrator.py"
     },
     {
