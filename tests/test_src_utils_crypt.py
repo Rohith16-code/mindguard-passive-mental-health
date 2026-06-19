@@ -140,3 +140,6 @@ def test_get_key_from_file_missing_raises(temp_key_dir):
     os.remove(temp_key_dir / "local.key")
     with pytest.raises(FileNotFoundError):
         get_key_from_file()
+
+def test_incomplete_function():
+    pass
