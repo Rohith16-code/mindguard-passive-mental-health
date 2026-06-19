@@ -1,0 +1,235 @@
+{
+  "timestamp": "2026-06-19T20:07:29.571752",
+  "total_issues": 38,
+  "critical": 33,
+  "issues": [
+    {
+      "file": "src/main.py",
+      "type": "import",
+      "description": "Import failed: cannot import name 'API_HOST' from 'src.config' (/home/namit/rohith/autonomous-dev/workspace/2026-06-19-passive-mental-health-crisis-detection-from-daily/src/config/__init__.py)",
+      "fix_hint": "Fix import in src/main.py"
+    },
+    {
+      "file": "src/workers/anomaly_detector.py",
+      "type": "import",
+      "description": "Import failed: No module named 'aerich'",
+      "fix_hint": "Fix import in src/workers/anomaly_detector.py"
+    },
+    {
+      "file": "src/workers/pipeline_orchestrator.py",
+      "type": "import",
+      "description": "Import failed: No module named 'src.db.async_db'",
+      "fix_hint": "Fix import in src/workers/pipeline_orchestrator.py"
+    },
+    {
+      "file": "src/workers/scheduler.py",
+      "type": "import",
+      "description": "Import failed: No module named 'src.core'",
+      "fix_hint": "Fix import in src/workers/scheduler.py"
+    },
+    {
+      "file": "src/workers/health_monitor.py",
+      "type": "import",
+      "description": "Import failed: No module named 'psutil'",
+      "fix_hint": "Fix import in src/workers/health_monitor.py"
+    },
+    {
+      "file": "src/workers/feedback_processor.py",
+      "type": "import",
+      "description": "Import failed: cannot import name 'db' from 'src.db' (/home/namit/rohith/autonomous-dev/workspace/2026-06-19-passive-mental-health-crisis-detection-from-daily/src/db/__init__.py)",
+      "fix_hint": "Fix import in src/workers/feedback_processor.py"
+    },
+    {
+      "file": "src/workers/batch_aggregator.py",
+      "type": "import",
+      "description": "Import failed: No module named 'aerich'",
+      "fix_hint": "Fix import in src/workers/batch_aggregator.py"
+    },
+    {
+      "file": "src/api/routes.py",
+      "type": "import",
+      "description": "Import failed: cannot import name 'get_logger' from 'src.utils.logger' (/home/namit/rohith/autonomous-dev/workspace/2026-06-19-passive-mental-health-crisis-detection-from-daily/src/utils/logger.py)",
+      "fix_hint": "Fix import in src/api/routes.py"
+    },
+    {
+      "file": "src/api/health_check.py",
+      "type": "import",
+      "description": "Import failed: cannot import name 'get_logger' from 'src.utils.logger' (/home/namit/rohith/autonomous-dev/workspace/2026-06-19-passive-mental-health-crisis-detection-from-daily/src/utils/logger.py)",
+      "fix_hint": "Fix import in src/api/health_check.py"
+    },
+    {
+      "file": "src/utils/time_utils.py",
+      "type": "import",
+      "description": "Import failed: No module named 'pytz'",
+      "fix_hint": "Fix import in src/utils/time_utils.py"
+    },
+    {
+      "file": "src/utils/crypt.py",
+      "type": "import",
+      "description": "Import failed: No module named 'cryptography'",
+      "fix_hint": "Fix import in src/utils/crypt.py"
+    },
+    {
+      "file": "src/utils/secure_storage.py",
+      "type": "import",
+      "description": "Import failed: No module named 'cryptography'",
+      "fix_hint": "Fix import in src/utils/secure_storage.py"
+    },
+    {
+      "file": "src/features/normalizer.py",
+      "type": "import",
+      "description": "Import failed: No module named 'src.database'",
+      "fix_hint": "Fix import in src/features/normalizer.py"
+    },
+    {
+      "file": "src/db/migrations.py",
+      "type": "import",
+      "description": "Import failed: No module named 'aerich'",
+      "fix_hint": "Fix import in src/db/migrations.py"
+    },
+    {
+      "file": "src/db/models.py",
+      "type": "import",
+      "description": "Import failed: No module named 'aerich'",
+      "fix_hint": "Fix import in src/db/models.py"
+    },
+    {
+      "file": "src/db/metrics_store.py",
+      "type": "import",
+      "description": "Import failed: cannot import name 'DATABASE_URL' from 'src.config' (/home/namit/rohith/autonomous-dev/workspace/2026-06-19-passive-mental-health-crisis-detection-from-daily/src/config/__init__.py)",
+      "fix_hint": "Fix import in src/db/metrics_store.py"
+    },
+    {
+      "file": "src/alerts/notifier.py",
+      "type": "import",
+      "description": "Import failed: cannot import name 'get_logger' from 'src.utils.logger' (/home/namit/rohith/autonomous-dev/workspace/2026-06-19-passive-mental-health-crisis-detection-from-daily/src/utils/logger.py)",
+      "fix_hint": "Fix import in src/alerts/notifier.py"
+    },
+    {
+      "file": "src/alerts/crisis_protocol.py",
+      "type": "import",
+      "description": "Import failed: No module named 'src.database'",
+      "fix_hint": "Fix import in src/alerts/crisis_protocol.py"
+    },
+    {
+      "file": "src/alerts/risk_engine.py",
+      "type": "import",
+      "description": "Import failed: cannot import name 'db' from 'src.db' (/home/namit/rohith/autonomous-dev/workspace/2026-06-19-passive-mental-health-crisis-detection-from-daily/src/db/__init__.py)",
+      "fix_hint": "Fix import in src/alerts/risk_engine.py"
+    },
+    {
+      "file": "src/ml/training_pipeline.py",
+      "type": "import",
+      "description": "Import failed: No module named 'aerich'",
+      "fix_hint": "Fix import in src/ml/training_pipeline.py"
+    },
+    {
+      "file": "src/ml/model_compiler.py",
+      "type": "import",
+      "description": "Import failed: No module named 'onnx'",
+      "fix_hint": "Fix import in src/ml/model_compiler.py"
+    },
+    {
+      "file": "src/ml/hyperparam_tuner.py",
+      "type": "import",
+      "description": "Import failed: No module named 'src.ml.models'",
+      "fix_hint": "Fix import in src/ml/hyperparam_tuner.py"
+    },
+    {
+      "file": "src/ml/model_validator.py",
+      "type": "import",
+      "description": "Import failed: cannot import name 'db' from 'src.db' (/home/namit/rohith/autonomous-dev/workspace/2026-06-19-passive-mental-health-crisis-detection-from-daily/src/db/__init__.py)",
+      "fix_hint": "Fix import in src/ml/model_validator.py"
+    },
+    {
+      "file": "src/ml/model_loader.py",
+      "type": "import",
+      "description": "Import failed: cannot import name 'db' from 'src.db' (/home/namit/rohith/autonomous-dev/workspace/2026-06-19-passive-mental-health-crisis-detection-from-daily/src/db/__init__.py)",
+      "fix_hint": "Fix import in src/ml/model_loader.py"
+    },
+    {
+      "file": "src/ml/federated_aggregator.py",
+      "type": "import",
+      "description": "Import failed: cannot import name 'db' from 'src.db' (/home/namit/rohith/autonomous-dev/workspace/2026-06-19-passive-mental-health-crisis-detection-from-daily/src/db/__init__.py)",
+      "fix_hint": "Fix import in src/ml/federated_aggregator.py"
+    },
+    {
+      "file": "src/ml/model_registry.py",
+      "type": "import",
+      "description": "Import failed: cannot import name 'db' from 'src.db' (/home/namit/rohith/autonomous-dev/workspace/2026-06-19-passive-mental-health-crisis-detection-from-daily/src/db/__init__.py)",
+      "fix_hint": "Fix import in src/ml/model_registry.py"
+    },
+    {
+      "file": "src/ingestion/sensor_adapter.py",
+      "type": "import",
+      "description": "Import failed: cannot import name 'get_logger' from 'src.utils.logger' (/home/namit/rohith/autonomous-dev/workspace/2026-06-19-passive-mental-health-crisis-detection-from-daily/src/utils/logger.py)",
+      "fix_hint": "Fix import in src/ingestion/sensor_adapter.py"
+    },
+    {
+      "file": "src/ingestion/handler.py",
+      "type": "import",
+      "description": "Import failed: No module named 'aerich'",
+      "fix_hint": "Fix import in src/ingestion/handler.py"
+    },
+    {
+      "file": "src/consent/anonymizer.py",
+      "type": "import",
+      "description": "Import failed: No module named 'cryptography'",
+      "fix_hint": "Fix import in src/consent/anonymizer.py"
+    },
+    {
+      "file": "src/alerts/notifier.py",
+      "type": "undefined",
+      "description": "Undefined name 'NSUserNotification' at line 166",
+      "fix_hint": "Define or import 'NSUserNotification'"
+    },
+    {
+      "file": "src/ingestion/sensor_adapter.py",
+      "type": "undefined",
+      "description": "Undefined name 'NSError' at line 291",
+      "fix_hint": "Define or import 'NSError'"
+    },
+    {
+      "file": "src/ingestion/sensor_adapter.py",
+      "type": "undefined",
+      "description": "Undefined name 'NSOperationQueue' at line 308",
+      "fix_hint": "Define or import 'NSOperationQueue'"
+    },
+    {
+      "file": "src/main.py",
+      "type": "import",
+      "description": "FastAPI app failed: Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n  File \"/home/namit/rohith/autonomous-dev/workspace/2026-06-19-passive-mental-health-crisis-detection-from-daily/src/main.py\",",
+      "fix_hint": "Fix imports in src/main.py"
+    },
+    {
+      "file": "tests/",
+      "type": "missing_dep",
+      "description": "pytest: ==================================== ERRORS ====================================",
+      "fix_hint": "Fix test imports or dependencies"
+    },
+    {
+      "file": "tests/",
+      "type": "missing_dep",
+      "description": "pytest: __________ ERROR collecting tests/test_src_alerts_crisis_protocol.py ___________",
+      "fix_hint": "Fix test imports or dependencies"
+    },
+    {
+      "file": "tests/",
+      "type": "missing_dep",
+      "description": "pytest: ______________ ERROR collecting tests/test_src_alerts_notifier.py ______________",
+      "fix_hint": "Fix test imports or dependencies"
+    },
+    {
+      "file": "tests/",
+      "type": "missing_dep",
+      "description": "pytest: ____________ ERROR collecting tests/test_src_alerts_risk_engine.py _____________",
+      "fix_hint": "Fix test imports or dependencies"
+    },
+    {
+      "file": "tests/",
+      "type": "missing_dep",
+      "description": "pytest: _____________ ERROR collecting tests/test_src_api_health_check.py ______________",
+      "fix_hint": "Fix test imports or dependencies"
+    }
+  ]
+}
