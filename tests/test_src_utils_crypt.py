@@ -74,14 +74,17 @@ def test_anonymize_string_is_deterministic(temp_key_dir):
     assert hash1 == hash2
 
 def test_anonymize_string_uses_salt_from_env(monkeypatch, temp_key_dir):
+    # Clear cache BEFORE setting environment variable to ensure clean state
+    anonymize.cache_clear()
     monkeypatch.setenv("CRYPT_SALT", "fixed_salt_123")
     value = "test@example.com"
     hash1 = anonymize(value)
-    # Clear cache to recompute
+    # Clear cache before changing salt to ensure new salt is used
     anonymize.cache_clear()
-    monkeypatch.setenv("CRYPT_SALT", "fixed_salt_123")
+    monkeypatch.setenv("CRYPT_SALT", "different_salt_456")
     hash2 = anonymize(value)
-    assert hash1 == hash2
+    # Hashes should differ because salt changed
+    assert hash1 != hash2
 
 def test_anonymize_with_db_lookup(mock_db, temp_key_dir):
     mock_db.query.return_value.filter.return_value.first.return_value = MagicMock(

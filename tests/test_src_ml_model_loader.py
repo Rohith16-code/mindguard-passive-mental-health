@@ -120,3 +120,9 @@ def test_load_model_version_mismatch(mock_db, mock_model):
         with pytest.raises(ModelVersionMismatchError) as exc_info:
             load_model("v1.2.3")
         assert "Expected version v1.2.3, got v1.2.4" in str(exc_info.value)
+
+
+def test_get_fallback_model_redis_no(mock_redis):
+    mock_redis.get.return_value = None
+    with pytest.raises(ModelNotFoundError):
+        get_fallback_model()
