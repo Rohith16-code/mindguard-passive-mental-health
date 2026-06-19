@@ -1,0 +1,10 @@
+{
+  "exit_code": 2,
+  "total_tests": 0,
+  "total_passed": 0,
+  "total_failed": 0,
+  "failed_tests": [],
+  "summary": "All tests passed.",
+  "docker_failed": true,
+  "raw_log_path": "/home/namit/rohith/autonomous-dev/logs/test_raw_2070735099.txt"
+}
