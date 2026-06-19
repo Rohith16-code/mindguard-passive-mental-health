@@ -146,3 +146,13 @@ def test_get_key_from_file_missing_raises(temp_key_dir):
 
 def test_incomplete_function():
     pass
+
+def test_anonymize_with_db_lookup(mock_db, temp_key_dir):
+    mock_db.query.return_value.filter.return_value.first.return_value = MagicMock(
+        anonymized_value="hashed_value_from_db"
+    )
+    value = "user123"
+    result = anonymize(value, use_db=True)
+    assert result == "hashed_value_from_db"
+    mock_db.query.assert_called_once()
+    mock_db.query.return_value.filter.assert_called_once()
