@@ -10,3 +10,8 @@ from scipy import stats
 
 from src.config import settings
 from src.db.models import SignalType, WellnessIndex
+
+try:
+    import aerich
+except ImportError:
+    aerich = None

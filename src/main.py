@@ -8,13 +8,14 @@ from fastapi import FastAPI
 from fastapi.responses import JSONResponse
 from starlette.middleware.cors import CORSMiddleware
 
-from src.config import API_PORT, DEBUG, ENV, ML_MODEL_PATH
+from src.config import DEBUG, ENV, ML_MODEL_PATH
 from src.db import init_db, close_db
 from src.ml import load_model, unload_model
 from src.routes import api_router
 
-# Define API_HOST if not exported from config
+# Define API_HOST and API_PORT if not exported from config
 API_HOST = "0.0.0.0"
+API_PORT = 8000
 
 logging.basicConfig(
     level=logging.DEBUG if DEBUG else logging.INFO,
