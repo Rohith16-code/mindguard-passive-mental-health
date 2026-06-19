@@ -1,0 +1,342 @@
+{
+  "project_name": "mindguard-ondevice",
+  "total_tasks": 48,
+  "tasks": [
+    {
+      "file_path": "src/main.py",
+      "purpose": "entry point",
+      "dependencies": [],
+      "priority": 0,
+      "status": "pending"
+    },
+    {
+      "file_path": "src/config.py",
+      "purpose": "runtime config & thresholds",
+      "dependencies": [],
+      "priority": 1,
+      "status": "pending"
+    },
+    {
+      "file_path": "src/db/models.py",
+      "purpose": "SQLite schema & ORM models",
+      "dependencies": [],
+      "priority": 2,
+      "status": "pending"
+    },
+    {
+      "file_path": "src/db/migrations.py",
+      "purpose": "schema versioning & migrations",
+      "dependencies": [],
+      "priority": 3,
+      "status": "pending"
+    },
+    {
+      "file_path": "src/ingestion/handler.py",
+      "purpose": "on-device sensor data ingestion pipeline",
+      "dependencies": [],
+      "priority": 4,
+      "status": "pending"
+    },
+    {
+      "file_path": "src/ingestion/validator.py",
+      "purpose": "data sanitization & format checks",
+      "dependencies": [],
+      "priority": 5,
+      "status": "pending"
+    },
+    {
+      "file_path": "src/features/extractor.py",
+      "purpose": "feature engineering from raw signals",
+      "dependencies": [],
+      "priority": 6,
+      "status": "pending"
+    },
+    {
+      "file_path": "src/features/normalizer.py",
+      "purpose": "per-user baseline calibration",
+      "dependencies": [],
+      "priority": 7,
+      "status": "pending"
+    },
+    {
+      "file_path": "src/ml/inference.py",
+      "purpose": "TFLite model inference + wellness index computation",
+      "dependencies": [],
+      "priority": 8,
+      "status": "pending"
+    },
+    {
+      "file_path": "src/ml/training_pipeline.py",
+      "purpose": "off-device training orchestration",
+      "dependencies": [],
+      "priority": 9,
+      "status": "pending"
+    },
+    {
+      "file_path": "src/ml/model_loader.py",
+      "purpose": "dynamic model versioning & fallback",
+      "dependencies": [],
+      "priority": 10,
+      "status": "pending"
+    },
+    {
+      "file_path": "src/alerts/risk_engine.py",
+      "purpose": "threshold evaluation + soft-check trigger logic",
+      "dependencies": [],
+      "priority": 11,
+      "status": "pending"
+    },
+    {
+      "file_path": "src/alerts/notifier.py",
+      "purpose": "local notification dispatch (no external comms)",
+      "dependencies": [],
+      "priority": 12,
+      "status": "pending"
+    },
+    {
+      "file_path": "src/consent/manager.py",
+      "purpose": "user consent tracking & opt-in flows",
+      "dependencies": [],
+      "priority": 13,
+      "status": "pending"
+    },
+    {
+      "file_path": "src/api/routes.py",
+      "purpose": "health, status, model update endpoints",
+      "dependencies": [],
+      "priority": 14,
+      "status": "pending"
+    },
+    {
+      "file_path": "src/api/middleware.py",
+      "purpose": "on-device rate limiting & anomaly detection",
+      "dependencies": [],
+      "priority": 15,
+      "status": "pending"
+    },
+    {
+      "file_path": "src/utils/crypt.py",
+      "purpose": "local key management & anonymization",
+      "dependencies": [],
+      "priority": 16,
+      "status": "pending"
+    },
+    {
+      "file_path": "src/utils/logger.py",
+      "purpose": "structured on-device logging",
+      "dependencies": [],
+      "priority": 17,
+      "status": "pending"
+    },
+    {
+      "file_path": "src/workers/scheduler.py",
+      "purpose": "periodic analysis & model refresh",
+      "dependencies": [],
+      "priority": 18,
+      "status": "pending"
+    },
+    {
+      "file_path": "src/workers/health_monitor.py",
+      "purpose": "on-device resource & battery-aware scheduling",
+      "dependencies": [],
+      "priority": 19,
+      "status": "pending"
+    },
+    {
+      "file_path": "src/workers/anomaly_detector.py",
+      "purpose": "real-time signal deviation detection",
+      "dependencies": [],
+      "priority": 20,
+      "status": "pending"
+    },
+    {
+      "file_path": "src/workers/feedback_processor.py",
+      "purpose": "user-reported mood feedback ingestion",
+      "dependencies": [],
+      "priority": 21,
+      "status": "pending"
+    },
+    {
+      "file_path": "src/ml/data_preprocessor.py",
+      "purpose": "on-device feature preprocessing",
+      "dependencies": [],
+      "priority": 22,
+      "status": "pending"
+    },
+    {
+      "file_path": "src/ml/model_arch.py",
+      "purpose": "TFLite-compatible LSTM + attention architecture",
+      "dependencies": [],
+      "priority": 23,
+      "status": "pending"
+    },
+    {
+      "file_path": "src/ml/hyperparam_tuner.py",
+      "purpose": "grid search for per-user calibration",
+      "dependencies": [],
+      "priority": 24,
+      "status": "pending"
+    },
+    {
+      "file_path": "src/db/queries.py",
+      "purpose": "optimized SQLite query helpers",
+      "dependencies": [],
+      "priority": 25,
+      "status": "pending"
+    },
+    {
+      "file_path": "src/db/cache.py",
+      "purpose": "LRU cache for recent features",
+      "dependencies": [],
+      "priority": 26,
+      "status": "pending"
+    },
+    {
+      "file_path": "src/consent/protocols.py",
+      "purpose": "IRB-compliant consent flow definitions",
+      "dependencies": [],
+      "priority": 27,
+      "status": "pending"
+    },
+    {
+      "file_path": "src/api/schemas.py",
+      "purpose": "Pydantic models for internal APIs",
+      "dependencies": [],
+      "priority": 28,
+      "status": "pending"
+    },
+    {
+      "file_path": "src/utils/time_utils.py",
+      "purpose": "timezone-aware sleep inference",
+      "dependencies": [],
+      "priority": 29,
+      "status": "pending"
+    },
+    {
+      "file_path": "src/utils/metrics.py",
+      "purpose": "on-device latency & accuracy tracking",
+      "dependencies": [],
+      "priority": 30,
+      "status": "pending"
+    },
+    {
+      "file_path": "src/workers/batch_aggregator.py",
+      "purpose": "sliding-window feature aggregation",
+      "dependencies": [],
+      "priority": 31,
+      "status": "pending"
+    },
+    {
+      "file_path": "src/ml/model_validator.py",
+      "purpose": "model drift detection & rollback",
+      "dependencies": [],
+      "priority": 32,
+      "status": "pending"
+    },
+    {
+      "file_path": "src/ingestion/sensor_adapter.py",
+      "purpose": "Android/iOS sensor abstraction layer",
+      "dependencies": [],
+      "priority": 33,
+      "status": "pending"
+    },
+    {
+      "file_path": "src/alerts/crisis_protocol.py",
+      "purpose": "escalation logic with clinician-defined rules",
+      "dependencies": [],
+      "priority": 34,
+      "status": "pending"
+    },
+    {
+      "file_path": "src/ml/federated_aggregator.py",
+      "purpose": "synthetic model updates from anonymized cohorts",
+      "dependencies": [],
+      "priority": 35,
+      "status": "pending"
+    },
+    {
+      "file_path": "src/db/metrics_store.py",
+      "purpose": "performance & usage metrics persistence",
+      "dependencies": [],
+      "priority": 36,
+      "status": "pending"
+    },
+    {
+      "file_path": "src/workers/pipeline_orchestrator.py",
+      "purpose": "async data flow coordination",
+      "dependencies": [],
+      "priority": 37,
+      "status": "pending"
+    },
+    {
+      "file_path": "src/ml/explainability.py",
+      "purpose": "on-device feature attribution for alerts",
+      "dependencies": [],
+      "priority": 38,
+      "status": "pending"
+    },
+    {
+      "file_path": "src/consent/anonymizer.py",
+      "purpose": "k-anonymity preprocessing before local storage",
+      "dependencies": [],
+      "priority": 39,
+      "status": "pending"
+    },
+    {
+      "file_path": "src/utils/secure_storage.py",
+      "purpose": "encrypted local storage for models & keys",
+      "dependencies": [],
+      "priority": 40,
+      "status": "pending"
+    },
+    {
+      "file_path": "src/api/health_check.py",
+      "purpose": "liveness/readiness endpoints",
+      "dependencies": [],
+      "priority": 41,
+      "status": "pending"
+    },
+    {
+      "file_path": "src/workers/energy_optimizer.py",
+      "purpose": "CPU/gpu throttling for battery efficiency",
+      "dependencies": [],
+      "priority": 42,
+      "status": "pending"
+    },
+    {
+      "file_path": "src/ml/model_compiler.py",
+      "purpose": "ONNX\u2192TFLite conversion pipeline",
+      "dependencies": [],
+      "priority": 43,
+      "status": "pending"
+    },
+    {
+      "file_path": "src/ml/model_registry.py",
+      "purpose": "versioned model storage & selection",
+      "dependencies": [],
+      "priority": 44,
+      "status": "pending"
+    },
+    {
+      "file_path": "src/ingestion/buffer.py",
+      "purpose": "ring buffer for high-frequency signals",
+      "dependencies": [],
+      "priority": 45,
+      "status": "pending"
+    },
+    {
+      "file_path": "src/ml/training_data_generator.py",
+      "purpose": "synthetic data augmentation for rare events",
+      "dependencies": [],
+      "priority": 46,
+      "status": "pending"
+    },
+    {
+      "file_path": "src/consent/audit_log.py",
+      "purpose": "immutable consent & action log",
+      "dependencies": [],
+      "priority": 47,
+      "status": "pending"
+    }
+  ]
+}
