@@ -1,0 +1,362 @@
+{
+  "project_name": "mindguard-ondevice",
+  "problem_summary": "Passive, privacy-preserving mental health crisis detection using on-device smartphone behavioral signals (typing rhythm, app usage, screen events, response latency) to compute a real-time wellness index. Triggers soft check-ins only when risk exceeds clinician-defined thresholds; all data processed locally with zero raw data transmission.",
+  "technology_stack": [
+    "Python",
+    "FastAPI",
+    "SQLite",
+    "TensorFlow Lite",
+    "PyTorch Mobile",
+    "Aerich",
+    "Hypothesis",
+    "uvloop"
+  ],
+  "files_to_create": [
+    {
+      "path": "src/main.py",
+      "purpose": "entry point",
+      "component": "api",
+      "dependencies": [],
+      "estimated_lines": 50
+    },
+    {
+      "path": "src/config.py",
+      "purpose": "runtime config & thresholds",
+      "component": "core",
+      "dependencies": [],
+      "estimated_lines": 40
+    },
+    {
+      "path": "src/db/models.py",
+      "purpose": "SQLite schema & ORM models",
+      "component": "db",
+      "dependencies": [],
+      "estimated_lines": 80
+    },
+    {
+      "path": "src/db/migrations.py",
+      "purpose": "schema versioning & migrations",
+      "component": "db",
+      "dependencies": [],
+      "estimated_lines": 60
+    },
+    {
+      "path": "src/ingestion/handler.py",
+      "purpose": "on-device sensor data ingestion pipeline",
+      "component": "ingestion",
+      "dependencies": [],
+      "estimated_lines": 120
+    },
+    {
+      "path": "src/ingestion/validator.py",
+      "purpose": "data sanitization & format checks",
+      "component": "ingestion",
+      "dependencies": [],
+      "estimated_lines": 70
+    },
+    {
+      "path": "src/features/extractor.py",
+      "purpose": "feature engineering from raw signals",
+      "component": "features",
+      "dependencies": [],
+      "estimated_lines": 150
+    },
+    {
+      "path": "src/features/normalizer.py",
+      "purpose": "per-user baseline calibration",
+      "component": "features",
+      "dependencies": [],
+      "estimated_lines": 90
+    },
+    {
+      "path": "src/ml/inference.py",
+      "purpose": "TFLite model inference + wellness index computation",
+      "component": "ml",
+      "dependencies": [],
+      "estimated_lines": 110
+    },
+    {
+      "path": "src/ml/training_pipeline.py",
+      "purpose": "off-device training orchestration",
+      "component": "ml",
+      "dependencies": [],
+      "estimated_lines": 200
+    },
+    {
+      "path": "src/ml/model_loader.py",
+      "purpose": "dynamic model versioning & fallback",
+      "component": "ml",
+      "dependencies": [],
+      "estimated_lines": 60
+    },
+    {
+      "path": "src/alerts/risk_engine.py",
+      "purpose": "threshold evaluation + soft-check trigger logic",
+      "component": "alerts",
+      "dependencies": [],
+      "estimated_lines": 100
+    },
+    {
+      "path": "src/alerts/notifier.py",
+      "purpose": "local notification dispatch (no external comms)",
+      "component": "alerts",
+      "dependencies": [],
+      "estimated_lines": 80
+    },
+    {
+      "path": "src/consent/manager.py",
+      "purpose": "user consent tracking & opt-in flows",
+      "component": "consent",
+      "dependencies": [],
+      "estimated_lines": 70
+    },
+    {
+      "path": "src/api/routes.py",
+      "purpose": "health, status, model update endpoints",
+      "component": "api",
+      "dependencies": [],
+      "estimated_lines": 90
+    },
+    {
+      "path": "src/api/middleware.py",
+      "purpose": "on-device rate limiting & anomaly detection",
+      "component": "api",
+      "dependencies": [],
+      "estimated_lines": 60
+    },
+    {
+      "path": "src/utils/crypt.py",
+      "purpose": "local key management & anonymization",
+      "component": "utils",
+      "dependencies": [],
+      "estimated_lines": 50
+    },
+    {
+      "path": "src/utils/logger.py",
+      "purpose": "structured on-device logging",
+      "component": "utils",
+      "dependencies": [],
+      "estimated_lines": 40
+    },
+    {
+      "path": "src/workers/scheduler.py",
+      "purpose": "periodic analysis & model refresh",
+      "component": "workers",
+      "dependencies": [],
+      "estimated_lines": 70
+    },
+    {
+      "path": "src/workers/health_monitor.py",
+      "purpose": "on-device resource & battery-aware scheduling",
+      "component": "workers",
+      "dependencies": [],
+      "estimated_lines": 60
+    },
+    {
+      "path": "src/workers/anomaly_detector.py",
+      "purpose": "real-time signal deviation detection",
+      "component": "workers",
+      "dependencies": [],
+      "estimated_lines": 130
+    },
+    {
+      "path": "src/workers/feedback_processor.py",
+      "purpose": "user-reported mood feedback ingestion",
+      "component": "workers",
+      "dependencies": [],
+      "estimated_lines": 80
+    },
+    {
+      "path": "src/ml/data_preprocessor.py",
+      "purpose": "on-device feature preprocessing",
+      "component": "ml",
+      "dependencies": [],
+      "estimated_lines": 100
+    },
+    {
+      "path": "src/ml/model_arch.py",
+      "purpose": "TFLite-compatible LSTM + attention architecture",
+      "component": "ml",
+      "dependencies": [],
+      "estimated_lines": 140
+    },
+    {
+      "path": "src/ml/hyperparam_tuner.py",
+      "purpose": "grid search for per-user calibration",
+      "component": "ml",
+      "dependencies": [],
+      "estimated_lines": 160
+    },
+    {
+      "path": "src/db/queries.py",
+      "purpose": "optimized SQLite query helpers",
+      "component": "db",
+      "dependencies": [],
+      "estimated_lines": 90
+    },
+    {
+      "path": "src/db/cache.py",
+      "purpose": "LRU cache for recent features",
+      "component": "db",
+      "dependencies": [],
+      "estimated_lines": 50
+    },
+    {
+      "path": "src/consent/protocols.py",
+      "purpose": "IRB-compliant consent flow definitions",
+      "component": "consent",
+      "dependencies": [],
+      "estimated_lines": 70
+    },
+    {
+      "path": "src/api/schemas.py",
+      "purpose": "Pydantic models for internal APIs",
+      "component": "api",
+      "dependencies": [],
+      "estimated_lines": 60
+    },
+    {
+      "path": "src/utils/time_utils.py",
+      "purpose": "timezone-aware sleep inference",
+      "component": "utils",
+      "dependencies": [],
+      "estimated_lines": 50
+    },
+    {
+      "path": "src/utils/metrics.py",
+      "purpose": "on-device latency & accuracy tracking",
+      "component": "utils",
+      "dependencies": [],
+      "estimated_lines": 60
+    },
+    {
+      "path": "src/workers/batch_aggregator.py",
+      "purpose": "sliding-window feature aggregation",
+      "component": "workers",
+      "dependencies": [],
+      "estimated_lines": 90
+    },
+    {
+      "path": "src/ml/model_validator.py",
+      "purpose": "model drift detection & rollback",
+      "component": "ml",
+      "dependencies": [],
+      "estimated_lines": 80
+    },
+    {
+      "path": "src/ingestion/sensor_adapter.py",
+      "purpose": "Android/iOS sensor abstraction layer",
+      "component": "ingestion",
+      "dependencies": [],
+      "estimated_lines": 110
+    },
+    {
+      "path": "src/alerts/crisis_protocol.py",
+      "purpose": "escalation logic with clinician-defined rules",
+      "component": "alerts",
+      "dependencies": [],
+      "estimated_lines": 100
+    },
+    {
+      "path": "src/ml/federated_aggregator.py",
+      "purpose": "synthetic model updates from anonymized cohorts",
+      "component": "ml",
+      "dependencies": [],
+      "estimated_lines": 130
+    },
+    {
+      "path": "src/db/metrics_store.py",
+      "purpose": "performance & usage metrics persistence",
+      "component": "db",
+      "dependencies": [],
+      "estimated_lines": 60
+    },
+    {
+      "path": "src/workers/pipeline_orchestrator.py",
+      "purpose": "async data flow coordination",
+      "component": "workers",
+      "dependencies": [],
+      "estimated_lines": 120
+    },
+    {
+      "path": "src/ml/explainability.py",
+      "purpose": "on-device feature attribution for alerts",
+      "component": "ml",
+      "dependencies": [],
+      "estimated_lines": 100
+    },
+    {
+      "path": "src/consent/anonymizer.py",
+      "purpose": "k-anonymity preprocessing before local storage",
+      "component": "consent",
+      "dependencies": [],
+      "estimated_lines": 70
+    },
+    {
+      "path": "src/utils/secure_storage.py",
+      "purpose": "encrypted local storage for models & keys",
+      "component": "utils",
+      "dependencies": [],
+      "estimated_lines": 80
+    },
+    {
+      "path": "src/api/health_check.py",
+      "purpose": "liveness/readiness endpoints",
+      "component": "api",
+      "dependencies": [],
+      "estimated_lines": 40
+    },
+    {
+      "path": "src/workers/energy_optimizer.py",
+      "purpose": "CPU/gpu throttling for battery efficiency",
+      "component": "workers",
+      "dependencies": [],
+      "estimated_lines": 60
+    },
+    {
+      "path": "src/ml/model_compiler.py",
+      "purpose": "ONNX\u2192TFLite conversion pipeline",
+      "component": "ml",
+      "dependencies": [],
+      "estimated_lines": 90
+    },
+    {
+      "path": "src/ml/model_registry.py",
+      "purpose": "versioned model storage & selection",
+      "component": "ml",
+      "dependencies": [],
+      "estimated_lines": 70
+    },
+    {
+      "path": "src/ingestion/buffer.py",
+      "purpose": "ring buffer for high-frequency signals",
+      "component": "ingestion",
+      "dependencies": [],
+      "estimated_lines": 50
+    },
+    {
+      "path": "src/ml/training_data_generator.py",
+      "purpose": "synthetic data augmentation for rare events",
+      "component": "ml",
+      "dependencies": [],
+      "estimated_lines": 120
+    },
+    {
+      "path": "src/consent/audit_log.py",
+      "purpose": "immutable consent & action log",
+      "component": "consent",
+      "dependencies": [],
+      "estimated_lines": 60
+    }
+  ],
+  "api_contracts": [],
+  "data_models": [],
+  "third_party_libraries": [
+    "tflite-runtime",
+    "torch",
+    "aerich",
+    "pydantic",
+    "uvloop",
+    "hypothesis"
+  ]
+}
