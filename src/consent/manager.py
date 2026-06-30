@@ -12,7 +12,7 @@ from pydantic import BaseModel, Field, validator
 
 class ConsentStatus(Enum):
     """Consent status enumeration."""
-    NOT_CONSENTED = "not_consentented"
+    NOT_CONSENTED = "not_consented"
     PENDING = "pending"
     GRANTED = "granted"
     REVOKED = "revoked"

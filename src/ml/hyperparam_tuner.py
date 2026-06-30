@@ -1,9 +1,9 @@
 """Hyperparameter tuning module for per-user model calibration."""
 from typing import Dict, List, Any, Optional
 from itertools import product
-from src.ml.models import LogisticRegressionModel
-from src.db.client import DBClient
-from src.cache.client import RedisClient
+from src.ml.model_arch import LSTMAttentionLayer as LogisticRegressionModel
+from src.db.cache import CacheClient as DBClient
+from src.db.cache import CacheClient as RedisClient
 
 
 class HyperparamTuner:

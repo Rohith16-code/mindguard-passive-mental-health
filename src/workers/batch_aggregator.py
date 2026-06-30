@@ -6,7 +6,8 @@ from collections import deque
 import asyncio
 import logging
 
-from aerich import Model
+import sqlite3
+from tortoise.models import Model
 from tortoise.fields import (
     IntField,
     DatetimeField,
@@ -14,7 +15,7 @@ from tortoise.fields import (
     CharField,
     FloatField,
 )
-from tortoise.models import Model as TortoiseModel
+
 
 logger = logging.getLogger(__name__)
 

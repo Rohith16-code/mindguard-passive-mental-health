@@ -3,15 +3,42 @@ from typing import Optional, Dict, Any
 from pathlib import Path
 import logging
 
-from src.db import db
-from src.cache import redis_client
-from src.ml.exceptions import ModelNotFoundError, ModelVersionMismatchError
-from src.ml.models import ModelRegistry
+from src.db.cache import CacheClient
+# from src.ml.exceptions import ModelNotFoundError, ModelVersionMismatchError
+from src.ml.model_registry import ModelRegistry
+
+
+class ModelNotFoundError(Exception):
+    """Raised when a requested model version cannot be found."""
+
 
 logger = logging.getLogger(__name__)
 
 FALLBACK_MODEL_VERSION = "fallback-v1"
 MODEL_CACHE_TTL = 3600  # 1 hour
+
+
+class ModelLoader:
+    """Loads ML models from registry or file path."""
+    
+    def __init__(self):
+        self._model = None
+        self._version = None
+    
+    def load(self, path: str):
+        """Load a model from file path."""
+        self._model = load_from_path(path)
+        self._version = "1.0.0"
+        return self._model
+    
+    def get_model(self):
+        """Get the currently loaded model."""
+        return self._model
+    
+    def get_version(self) -> str:
+        """Get the current model version."""
+        return self._version or "unknown"
+
 
 
 def get_latest_model_version() -> str:

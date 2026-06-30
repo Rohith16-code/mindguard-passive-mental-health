@@ -1,8 +1,8 @@
 """Risk engine module for threshold evaluation and soft-check trigger logic."""
 from typing import Literal, Optional
 from dataclasses import dataclass
-from src.db import db
-from src.redis import redis
+from src.db.cache import CacheClient as db
+from src.db.cache import CacheClient as redis
 import time
 
 

@@ -4,9 +4,8 @@ from typing import Dict, Any, Optional
 import re
 
 from src.config import settings
-from src.db.db import db
-from src.redis import redis_client
-from src.schemas.feedback import FeedbackIn
+from src.db.cache import CacheClient
+from src.api.schemas import FeedbackCreate
 
 
 VALID_MOODS = {"happy", "sad", "anxious", "neutral", "excited", "calm", "tired", "frustrated"}

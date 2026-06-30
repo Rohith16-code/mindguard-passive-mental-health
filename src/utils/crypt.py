@@ -59,3 +59,42 @@ def anonymize_email(email: str) -> str:
 def anonymize_user_id(user_id: Union[int, str]) -> str:
     """Anonymize a user identifier using a deterministic hash."""
     return hashlib.sha256(str(user_id).encode("utf-8")).hexdigest()[:12]
+
+
+def anonymize_device_id(device_id: str) -> str:
+    """Hash a device ID for privacy-safe storage."""
+    return hashlib.sha256(device_id.encode("utf-8")).hexdigest()[:16]
+
+
+def encrypt_data(data: bytes, key: bytes = None) -> bytes:
+    """Encrypt raw bytes using Fernet symmetric encryption."""
+    if key is None:
+        key = generate_key()
+    f = Fernet(key)
+    return f.encrypt(data)
+
+
+def decrypt_data(encrypted: bytes, key: bytes) -> bytes:
+    """Decrypt data encrypted with encrypt_data."""
+    f = Fernet(key)
+    return f.decrypt(encrypted)
+
+
+def encrypt_file(filepath: str, key: bytes = None) -> str:
+    """Encrypt a file and return the path to the encrypted file."""
+    if key is None:
+        key = generate_key()
+    with open(filepath, "rb") as f:
+        data = f.read()
+    encrypted = encrypt(data, key)
+    enc_path = filepath + ".enc"
+    with open(enc_path, "wb") as f:
+        f.write(encrypted)
+    return enc_path
+
+
+def decrypt_file(filepath: str, key: bytes) -> bytes:
+    """Decrypt a file and return the decrypted contents."""
+    with open(filepath, "rb") as f:
+        encrypted = f.read()
+    return decrypt(encrypted, key)

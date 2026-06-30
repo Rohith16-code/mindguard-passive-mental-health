@@ -150,3 +150,20 @@ def validate_record(record: Dict[str, Any], schema: Dict[str, Type]) -> Dict[str
             result["is_valid"] = False
 
     return result
+
+def validate_sensor_event(event: dict) -> bool:
+    """Validate a sensor event dictionary.
+    
+    Args:
+        event: Dictionary with sensor_type, timestamp, and data fields.
+        
+    Returns:
+        True if valid, False otherwise.
+    """
+    if not isinstance(event, dict):
+        return False
+    if "sensor_type" not in event or "timestamp" not in event:
+        return False
+    if "data" not in event:
+        return False
+    return True

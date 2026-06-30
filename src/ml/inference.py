@@ -8,7 +8,7 @@ import tensorflow as tf
 
 from src.config import settings
 from src.db.session import SessionLocal
-from src.models import UserBehavior, WellnessLog
+from src.db.models import UserBehavior, WellnessLog
 
 
 def load_model(model_path: str) -> tf.lite.Interpreter:

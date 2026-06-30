@@ -14,8 +14,8 @@ import time
 
 from src.utils.logger import get_logger
 from src.utils.crypt import encrypt_file, decrypt_file, generate_key
-from src.ml.model_arch import build_tflite_model
-from src.workers.scheduler import schedule_model_refresh
+from src.ml.model_arch import build_lstm_attention_model
+from src.workers.scheduler import refresh_model_periodically
 from src.config import settings
 
 logger = get_logger(__name__)
@@ -47,7 +47,7 @@ class ModelUpdateResponse(BaseModel):
 async def health_check():
     """Health check endpoint."""
     try:
-        model_path = Path(settings.MODEL_PATH)
+        model_path = Path(settings.ML_MODEL_PATH)
         model_loaded = model_path.exists() and model_path.is_file()
         model_version = None
         if model_loaded:
@@ -98,7 +98,7 @@ async def health_check():
 async def readiness_check():
     """Readiness check endpoint."""
     try:
-        model_path = Path(settings.MODEL_PATH)
+        model_path = Path(settings.ML_MODEL_PATH)
         model_loaded = model_path.exists() and model_path.is_file()
         if not model_loaded:
             raise HTTPException(status_code=503, detail="Model not loaded")
@@ -122,7 +122,7 @@ async def update_model(
 ):
     """Update model endpoint."""
     try:
-        model_path = Path(settings.MODEL_PATH)
+        model_path = Path(settings.ML_MODEL_PATH)
         new_model_path = Path(request.model_path)
 
         if not new_model_path.exists():
@@ -139,7 +139,7 @@ async def update_model(
 
         shutil.copy2(new_model_path, model_path)
 
-        background_tasks.add_task(schedule_model_refresh)
+        background_tasks.add_task(refresh_model_periodically)
 
         return ModelUpdateResponse(
             success=True,

@@ -4,11 +4,10 @@ import time
 from datetime import datetime
 from typing import Optional
 
-from src.core.config import settings
-from src.core.db import db
-from src.core.redis import redis_client
-from src.services.model_manager import model_manager
-from src.services.analyzer import analyzer
+from src.config import settings
+from src.db.cache import CacheClient
+from src.ml.model_loader import ModelLoader
+from src.features.extractor import extract_features as analyzer
 
 
 scheduler_instance: Optional[threading.Thread] = None

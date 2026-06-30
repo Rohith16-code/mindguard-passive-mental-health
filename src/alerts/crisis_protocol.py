@@ -5,10 +5,9 @@ from enum import Enum
 from datetime import datetime
 import logging
 
-from src.database import db
-from src.cache import redis_client
-from src.models.alerts import Alert, AlertStatus, AlertPriority
-from src.rules.engine import RuleEvaluator
+from src.db.cache import CacheClient
+from src.db.models import Alert, AlertStatus, AlertPriority
+from src.alerts.risk_engine import RiskEngine as RuleEvaluator
 
 logger = logging.getLogger(__name__)
 

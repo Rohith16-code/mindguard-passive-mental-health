@@ -14,23 +14,23 @@ class AttentionLayer:
     def build(self, input_shape: Tuple[int, ...]) -> None:
         """Build attention weights."""
         feature_dim = input_shape[-1]
-        self.W = np.random.randn(feature_dim, self.units).astype(np.float32) * 0.1
-        self.b = np.zeros(self.units, dtype=np.float32)
+        self.W = np.random.randn(feature_dim, 1).astype(np.float32) * 0.1
+        self.b = np.zeros(1, dtype=np.float32)
 
     def __call__(self, inputs: np.ndarray) -> np.ndarray:
         """Compute attention weights and apply to inputs."""
         if self.W is None:
             self.build(inputs.shape)
 
-        # Compute attention scores: score = tanh(W * h + b)
-        scores = np.tanh(np.dot(inputs, self.W) + self.b)
+        # Compute attention scores: score = tanh(W * h + b), shape (B, T, 1)
+        scores = np.tanh(np.dot(inputs, self.W) + self.b)  # (B, T, 1)
 
-        # Softmax over time dimension
+        # Softmax over time dimension (axis=1)
         exp_scores = np.exp(scores - np.max(scores, axis=1, keepdims=True))
-        attention_weights = exp_scores / np.sum(exp_scores, axis=1, keepdims=True)
+        attention_weights = exp_scores / np.sum(exp_scores, axis=1, keepdims=True)  # (B, T, 1)
 
-        # Apply attention weights to inputs
-        context = np.sum(attention_weights * inputs, axis=1)
+        # Apply attention weights to inputs: (B, T, F) * (B, T, 1) -> sum over time -> (B, F)
+        context = np.sum(attention_weights * inputs, axis=1)  # (B, F)
         return context
 
 

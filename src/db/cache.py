@@ -46,3 +46,31 @@ class LRUCache:
     def values(self) -> List[Any]:
         """Return list of values in order from oldest to newest."""
         return list(self.cache.values())
+
+
+class CacheClient:
+    """Redis-like cache client wrapping LRUCache for local use."""
+
+    def __init__(self, max_size: int = 1000):
+        self._lru = LRUCache(max_size=max_size)
+
+    def get(self, key: str) -> Optional[Any]:
+        return self._lru.get(key)
+
+    def set(self, key: str, value: Any) -> None:
+        self._lru.put(key, value)
+
+    def delete(self, key: str) -> bool:
+        if key in self._lru:
+            self._lru.cache.pop(key, None)
+            return True
+        return False
+
+    def exists(self, key: str) -> bool:
+        return key in self._lru
+
+    def keys(self, pattern: str = "*") -> List[str]:
+        return self._lru.keys()
+
+    def flushall(self) -> None:
+        self._lru.clear()

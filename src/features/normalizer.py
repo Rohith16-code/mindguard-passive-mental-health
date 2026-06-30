@@ -3,8 +3,7 @@ from typing import List, Union
 import math
 import statistics
 
-from src.database import db
-from src.cache import redis_client
+from src.db.cache import CacheClient
 
 
 def calculate_baseline_mean(user_id: str) -> float:

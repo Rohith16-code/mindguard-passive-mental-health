@@ -2,9 +2,9 @@
 import json
 import math
 from typing import List, Dict, Any, Optional
-from src.db import db
-from src.redis import redis_client
-from src.ml.model import BaseModel
+from pydantic import BaseModel
+from src.db.cache import CacheClient
+from src.ml.model_arch import build_lstm_attention_model
 
 
 class FederatedAggregator:

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MindGuard Dashboard</title>
+  <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+  <div class="bg-blobs" aria-hidden="true">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+  </div>
+
+  <header>
+    <div class="brand">
+      <div class="logo" aria-hidden="true">🧠</div>
+      <div class="brand-text">
+        <h1>MindGuard</h1>
+        <span>Passive Mental Health Crisis Detection</span>
+      </div>
+    </div>
+    <div class="header-actions">
+      <span id="systemStatus" class="pill pill-warn"><span class="dot"></span> Loading...</span>
+      <a href="/docs" class="button button-outline" style="margin-left:1rem">API Docs</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h2>Protective, privacy-first behavioral health monitoring</h2>
+      <p>This dashboard connects to the MindGuard FastAPI backend. It visualizes system health, runs simulated risk assessments, and surfaces clinician-review alerts.</p>
+    </section>
+
+    <div class="grid">
+      <!-- Health metrics -->
+      <article class="card span-4">
+        <div class="card-header"><h3>Environment</h3></div>
+        <div class="metric-value" id="envValue">-</div>
+        <div class="metric-label">Current deployment mode</div>
+      </article>
+
+      <article class="card span-4">
+        <div class="card-header"><h3>API Status</h3></div>
+        <div class="metric-value" id="apiValue">-</div>
+        <div class="metric-label">Backend connectivity</div>
+      </article>
+
+      <article class="card span-4">
+        <div class="card-header"><h3>ML Model</h3></div>
+        <div class="metric-value" id="modelValue">-</div>
+        <div class="metric-label">Version <span id="modelVersion">-</span></div>
+      </article>
+
+      <article class="card span-4">
+        <div class="card-header"><h3>Disk Usage</h3></div>
+        <div class="metric-value" id="diskValue">-</div>
+        <div class="metric-label">Host filesystem</div>
+      </article>
+
+      <article class="card span-4">
+        <div class="card-header"><h3>Memory Usage</h3></div>
+        <div class="metric-value" id="memValue">-</div>
+        <div class="metric-label">Host RAM</div>
+      </article>
+
+      <article class="card span-4">
+        <div class="card-header"><h3>Latest Severity</h3></div>
+        <span id="severityBadge" class="pill pill-warn"><span class="dot"></span> Awaiting Input</span>
+        <div class="metric-label">From last assessment</div>
+      </article>
+
+      <!-- Interactive assessment -->
+      <section class="card span-8">
+        <div class="card-header"><h3>Simulated Risk Assessment</h3><span class="pill pill-ok">POST /api/v1/predict</span></div>
+        <p style="color:var(--text-muted); margin-top:0">Adjust the sliders to simulate passive digital signals and send them to the inference endpoint.</p>
+        <div class="form-row">
+          <div class="input-group">
+            <label for="inputSleep">Sleep Quality (0-1)</label>
+            <input id="inputSleep" type="number" min="0" max="1" step="0.05" value="0.2">
+          </div>
+          <div class="input-group">
+            <label for="inputSocial">Social Engagement (0-1)</label>
+            <input id="inputSocial" type="number" min="0" max="1" step="0.05" value="0.1">
+          </div>
+          <div class="input-group">
+            <label for="inputTyping">Typing Velocity (0-1)</label>
+            <input id="inputTyping" type="number" min="0" max="1" step="0.05" value="0.4">
+          </div>
+        </div>
+        <button id="btnAssess" class="button">Run Assessment</button>
+        <pre class="json" id="assessmentResult" style="margin-top:1rem">Click “Run Assessment” to see the API response.</pre>
+      </section>
+
+      <!-- Alerts -->
+      <section class="card span-4">
+        <div class="card-header"><h3>Active Alerts</h3><button id="btnAlerts" class="button button-outline" style="padding:0.5rem 1rem">Refresh</button></div>
+        <ul class="alert-list" id="alertsList">
+          <li class="empty-state">Loading alerts...</li>
+        </ul>
+      </section>
+
+      <!-- Consent / Privacy -->
+      <section class="card span-12">
+        <div class="card-header"><h3>Privacy & Compliance</h3></div>
+        <div class="grid" style="gap:1rem; margin-top:0.5rem">
+          <div class="card" style="background:var(--surface-soft); box-shadow:none;">
+            <strong>On-device processing</strong>
+            <p style="color:var(--text-muted); margin:0.25rem 0 0; font-size:0.9rem">Signals are analyzed locally; only anonymized risk scores transit the network.</p>
+          </div>
+          <div class="card" style="background:var(--surface-soft); box-shadow:none;">
+            <strong>Opt-in consent</strong>
+            <p style="color:var(--text-muted); margin:0.25rem 0 0; font-size:0.9rem">Users grant and revoke consent through auditable FHIR-compatible protocols.</p>
+          </div>
+          <div class="card" style="background:var(--surface-soft); box-shadow:none;">
+            <strong>Audit trail</strong>
+            <p style="color:var(--text-muted); margin:0.25rem 0 0; font-size:0.9rem">Every prediction, alert, and consent change is logged immutably.</p>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    MindGuard Backend: <a href="/api/v1/health">Health JSON</a> &middot; <a href="/api/v1/status">System Status</a> &middot; <a href="/docs">Swagger</a> &middot; <a href="/redoc">ReDoc</a>
+  </footer>
+
+  <script src="/static/js/app.js"></script>
+</body>
+</html>
